@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- META -->
+	<title>Rsyslog cluster status</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="" />
+	
+	<!-- CSS -->
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/kickstart.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    	<!-- CSS --><link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+	
+	<!-- Javascript -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/kickstart.js') }}"></script>
+
+</head>
+<body>
+<!-- Error -->
+        <div class="col_1">
+	<div class="notice warning"><i class="fa fa-warning fa-large"></i> Use Chrome
+	<a href="#close" class="fa fa-remove"></a></div>
+        </div>
+
+<div class="grid">
+	<div class="col_12" style="margin-top:100px;">
+		<h2 class="center"> 
+		<i class="fa fa-sitemap fa-2x" style="color:rgba(0,97,217,0.12)"></i><br>
+		Rsyslog cluster status </h2>
+        <h4 style="color:#999;margin-bottom:40px;" class="center">CDC</h4>
+
+    <br><br>
+
+    <br>
+
+		<!-- Select !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+	    <form action = "/status" method = "post" onsubmit="return checkForm(this);">
+
+        <script type="text/javascript">
+
+          function checkForm(form)
+          {
+            //
+            // validate form fields
+            //
+
+            form.myButton.disabled = true;
+            return true;
+          }
+
+        </script>
+
+
+		<select name="ik" id="ik">
+            <option value="">-- Select --</option>
+            {% for switch in switches %}
+                <option value="{{ switch }}">{{ switch }}</option>"
+            {% endfor %}
+		</select>
+
+            <label><input type="checkbox" class="radio" name="DB1" value="a">admin</label>
+            <label><input type="checkbox" class="radio" name="DB1" value="b">custsvc-mongod-</label>
+
+{#        <button class="small green"><i class="fa fa-play-circle"></i> sh int status</button>#}
+        <input type="submit" name="myButton" value="Submit">
+
+        <!-- Checkbox -->
+{#        <input type="checkbox" name="extend" id="extend" value="1" />#}
+{#        <label for="extend" class="inline">Extended info (can take up to 2 minutes)</label>#}
+
+
+        </form>
+
+		<br><br>
+
+
+		<br>
+		<!-- HR.alt2 -->
+        <hr class="alt2" />
+
+        <h5>output for {{ host }}</h5>
+
+            <table cellspacing="0" cellpadding="0" class="striped tight sortable">
+
+            <thead><tr>
+                <th>Service Port</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>VLAN</th>
+                <th>Duplex</th>
+                <th>Speed</th>
+                <th>Type</th>
+                <th>Host info</th>
+                <th>Last Input</th>
+
+            </tr></thead>
+
+            <tbody>
+
+                
+
+            {% for unique_list, int_name, int_status, int_vlan, int_duplex, int_speed, int_type, last_input in col %}
+                <tr>
+                <td> <button class="tooltip small blue pill" data-content="#tooltipcontentID{{ int_vlan }}" data-action="click">{{ unique_list }}</button> </td>
+                <td> {{ int_name }} </td>
+                <td> {{ int_status }} </td>
+                <td> {{ int_vlan }} </td>
+                <td> {{ int_duplex }} </td>
+                <td> {{ int_speed }} </td>
+                <td> {{ int_type }}</td>
+                <td> <button class="small blue"><i class="fa fa-play-circle"></i>?</button> </td>
+                <td> {{ last_input }}</td>
+                </tr>
+
+{#                <div class="tooltip-content" id="tooltipcontentID{{ int_vlan }}"><h5>Host information {{ int_port }}</h5>#}
+{#                </div>#}
+
+
+
+
+            {% endfor %}
+{#                <div class="tooltip-content" id="tooltipcontentID"><h5>Host information {{ int_port }}</h5>#}
+{#                </div>#}
+{#                <div class="tooltip-content" id="tooltipcontentID2"><h5>ID 2Host information {{ int_port }}</h5>#}
+{#                </div>#}
+
+
+            </tbody>
+            </table>
+
+        </h6>
+		<!-- HR.alt2 -->
+		<hr class="alt2" />
+		<p style="color:#9994;margin-bottom:40px;" class="center">{{day}}</p>
+		<p style="color:#9994;margin-bottom:40px;" class="center">logged in as {{ name }} from {{host}}</p>
+        <a href="/logout">Logout {{ name }}</a>
+	</div>
+</div> <!-- End Grid -->
+</body>
+</html>
+
+
+<!-- End Grid -->
+<!-- End Grid -->
+<!-- End Grid -->
