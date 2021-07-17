@@ -1,0 +1,16 @@
+hostname st-linapp1227.st.statoil.no
+60062      unix_syslog                     1171 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_unix_syslog.conf -i /var/run/user/654/rsyslog_etl_unix_syslog.pid
+60067      zscaler                         1196 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_zscaler.conf -i /var/run/user/654/rsyslog_etl_zscaler.pid
+60070      guest_nps                       1188 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_guest_nps.conf -i /var/run/user/654/rsyslog_etl_guest_nps.pid
+60071      ise-office                      1200 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_ise-office.conf -i /var/run/user/654/rsyslog_etl_ise-office.pid
+60072      ise-plant                       1169 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_ise-plant.conf -i /var/run/user/654/rsyslog_etl_ise-plant.pid
+60074      ocdns                           1183 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_ocdns.conf -i /var/run/user/654/rsyslog_etl_ocdns.pid
+hostname st-linapp1228.st.statoil.no
+60062      unix_syslog                     1065 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_unix_syslog.conf -i /var/run/user/654/rsyslog_etl_unix_syslog.pid
+60067      zscaler                         1068 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_zscaler.conf -i /var/run/user/654/rsyslog_etl_zscaler.pid
+hostname st-linapp1229.st.statoil.no
+60062      unix_syslog                     1089 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_unix_syslog.conf -i /var/run/user/654/rsyslog_etl_unix_syslog.pid
+60067      zscaler                         1099 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_zscaler.conf -i /var/run/user/654/rsyslog_etl_zscaler.pid
+hostname st-linapp1230.st.statoil.no
+60062      unix_syslog                     1063 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_unix_syslog.conf -i /var/run/user/654/rsyslog_etl_unix_syslog.pid
+60067      zscaler                        11054 /usr/sbin/rsyslogd -n -f /etc/rsyslog_etl/rsyslog_etl_zscaler.conf -i /var/run/user/654/rsyslog_etl_zscaler.pid
