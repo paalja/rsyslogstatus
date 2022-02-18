@@ -37,7 +37,7 @@ uid = "PJA"
 serial = 20220218
 
 # In how many days, counting from today, this certificate will expire.
-expiration_days = 700
+expiration_days = 365
 
 # X.509 v3 extensions
 
@@ -49,14 +49,14 @@ expiration_days = 700
 ip_address = "10.2.0.6"
 
 # An email in case of a person
-email = "none@none.org"
+email = "pja@equinor.com"
 
 # An URL that has CRLs (certificate revocation lists)
 # available. Needed in CA certificates.
 #crl_dist_points = "http://www.getcrl.crl/getcrl/"
 
 # Whether this is a CA certificate or not
-#ca
+ca
 
 # Whether this certificate will be used for a TLS client
 tls_www_client
