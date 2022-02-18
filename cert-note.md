@@ -1,5 +1,7 @@
 _Certificate Authority__
 
+__certtool__ is used to parse and generate X.509 certificates, requests and private keys.
+
 initialize directory
 
 ```
@@ -22,13 +24,9 @@ chmod 400 ca-key.pem
 ```
 
 Generating certificate requests
-- To create a certificate request (needed when the certificate is  issued  by another party), run:
+- To create a certificate request (needed when the certificate is issued by another party), run:
 ```
-
 certtool --generate-request --load-privkey ca-key.pem --outfile request.pem
-
-If the private key is stored in a smart card you can generate a request by specifying the private key object URL.
-certtool --generate-request --load-privkey "pkcs11:..."   --load-pubkey "pkcs11:..." --outfile request.pem
 ```
 Generate the self signed public key
 ```
@@ -50,4 +48,7 @@ certtool --generate-certificate --load-request request.pem --outfile cert.pem --
 certtool --generate-certificate --load-privkey key.pem --outfile cert.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem
 ```
 
-
+Certificate information ( Validity / Issuer / Key Algorithm / Extensions / Signature Algorithm )
+```
+certtool --certificate-info --infile cert.pem
+```
