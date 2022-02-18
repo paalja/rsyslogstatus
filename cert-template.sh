@@ -17,8 +17,8 @@ state = "Rogaland"
 # The country of the subject. Two letter code.
 country = NO
 
-# The common name of the certificate owner.
-cn = "PJA"
+# The common name of the certificate owner. / Common Name (CN) / FQDN / .example.com / www.example.com
+cn = "k8-ca"
 
 # A user id of the certificate owner.
 uid = "PJA"
