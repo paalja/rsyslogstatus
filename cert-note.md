@@ -25,7 +25,7 @@ Generating certificate requests
 - To create a certificate request (needed when the certificate is  issued  by another party), run:
 ```
 
-certtool --generate-request --load-privkey key.pem    --outfile request.pem
+certtool --generate-request --load-privkey ca-key.pem --outfile request.pem
 
 If the private key is stored in a smart card you can generate a request by specifying the private key object URL.
 certtool --generate-request --load-privkey "pkcs11:..."   --load-pubkey "pkcs11:..." --outfile request.pem
@@ -41,7 +41,13 @@ Generating a certificate
 
 ```
 certtool --generate-certificate --load-request request.pem --outfile cert.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem
+```
 
+
+ - To generate a certificate using the private key only, use the command:
+
+```
+certtool --generate-certificate --load-privkey key.pem --outfile cert.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem
 ```
 
 
