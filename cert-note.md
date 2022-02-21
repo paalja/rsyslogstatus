@@ -2,6 +2,9 @@ _Certificate Authority__
 
 __certtool__ is used to parse and generate X.509 certificates, requests and private keys.
 
+
+https://www.howtouselinux.com/post/ssl-certificate-pem-file
+
 initialize directory
 
 ```
@@ -24,6 +27,8 @@ chmod 400 ca-key.pem
 ```
 
 Generating certificate requests
+- CSR itself is usually created in a Base-64 based PEM (Privacy Enhanced Mail) format.
+- A PEM file is a text file containing one or more items in Base64 ASCII encoding, each with plain-text headers and footers.
 - To create a certificate request (needed when the certificate is issued by another party), run:
 ```
 certtool --generate-request --load-privkey ca-key.pem --outfile request.pem
@@ -51,4 +56,7 @@ certtool --generate-certificate --load-privkey key.pem --outfile cert.pem --load
 Certificate information ( Validity / Issuer / Key Algorithm / Extensions / Signature Algorithm )
 ```
 certtool --certificate-info --infile cert.pem
+```
+```
+openssl x509 -text -in cert.pem -noou
 ```
